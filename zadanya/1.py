@@ -27,21 +27,21 @@ class Money:
     def divide_sum(self, num: float) -> 'Money':
         result: Money = Money()
         total_kopecks: int = self.rubles * 100 + self.kopecks
-        result_kopecks: float = total_kopecks / num
-        result.rubles, result.kopecks = divmod(int(result_kopecks), 100)
+        result_kopecks: int = int(total_kopecks / num * 100)  # Исправление типа
+        result.rubles, result.kopecks = divmod(result_kopecks, 100)
         return result
 
     def divide_by_number(self, num: float) -> 'Money':
         result: Money = Money()
         total_kopecks: int = self.rubles * 100 + self.kopecks
-        result_kopecks: float = total_kopecks / num
-        result.rubles, result.kopecks = divmod(int(result_kopecks), 100)
+        result_kopecks: int = int(total_kopecks / num * 100)  # Исправление типа
+        result.rubles, result.kopecks = divmod(result_kopecks, 100)
         return result
 
     def multiply_by_number(self, num: float) -> 'Money':
         result: Money = Money()
         total_kopecks: int = self.rubles * 100 + self.kopecks
-        result_kopecks: float = total_kopecks * num
+        result_kopecks: int = int(total_kopecks * num)  # Исправление типа
         result.rubles, result.kopecks = divmod(result_kopecks, 100)
         return result
 
@@ -89,3 +89,4 @@ if __name__ == '__main__':
 
     comparison_result_lt: bool = money1.is_less_than(money2)
     print(f"Сравнение меньше: {comparison_result_lt}")
+
