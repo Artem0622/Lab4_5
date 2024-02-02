@@ -89,4 +89,3 @@ if __name__ == '__main__':
 
     comparison_result_lt: bool = money1.is_less_than(money2)
     print(f"Сравнение меньше: {comparison_result_lt}")
-
